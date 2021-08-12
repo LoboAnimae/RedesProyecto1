@@ -27,7 +27,7 @@ class Register(ClientXMPP):
             await resp.send()
             print("Registered with server")
         except exceptions.IqError as e:
-            print(f"Failed to register with server: {e}")
+            print(f"Failed to register with server: Existing user")
         except exceptions.IqTimeout:
             print("No response from server.")
         finally:
