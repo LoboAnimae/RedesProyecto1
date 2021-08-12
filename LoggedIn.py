@@ -25,8 +25,8 @@ class LoggedIn(ClientXMPP):
 
         self.delete = mode == 'delete'
 
-    def connected(self):
-        print('You have been connected to the network.')
+    def connected(self, data):
+        print('You have been connected to the network. Attempting to start session...')
 
     def disconnected(self):
         print('You have been disconnected to the network.')
@@ -71,6 +71,53 @@ class LoggedIn(ClientXMPP):
             await self.delete_account()
         else:
             print('You can now try all the event-based features!')
+            self.print_menu()
+
+    async def print_menu(self):
+        while True:
+            option = input(
+                '''Choose one:
+                1. Send a message
+                2. Check all online members
+                3. Check member information
+                4. Subscribe to a user
+                5. Change your status
+                3. Exit
+
+                >>> ''')
+
+            if option == 4:
+                exit()
+            else:
+                if option == 1:
+                    suboption = input(
+                        '''Choose one:
+                        1. Send private message
+                        2. Send group message
+                        3. Go back
+                        ''')
+                    if suboption == 1:
+                        to = input('To: ')
+                        message = input('Your message: ')
+                        self.send_new_message(to, message)
+                    elif suboption == 2:
+                        to = input('Group name: ')
+                        message = input('Your message: ')
+                        self.send_message(to, message, mtype='groupchat')
+                elif option == 2:
+                    self.get_all_users()
+                elif option == 3:
+                    jid = input('What is their JID?\n>>> ')
+                    await self.show_single_user(jid)
+                elif option == 4:  # Subscribe
+                    show = input('What to show: ')
+                    status = input('New status: ')
+                    self.subscribe(show, status)
+                elif option == 5:  # Status
+                    presence = input('New presence (default: away)')
+                    status_message = input('New Status: ')
+                    nickname = input('New nickname: ')
+                    self.change_presence(presence, status_message, nickname)
 
     def send_new_message(self, receiver, str_message):
         self.send_message(mto=receiver, mbody=str_message, mtype='chat')
@@ -105,7 +152,7 @@ class LoggedIn(ClientXMPP):
     def failed_auth(self):
         pass
 
-    async def show_single_user(self, jid):
+    def show_single_user(self, jid):
         user = self.client_roster[jid]
         name = user['name']
         subscription = user['subscription']
