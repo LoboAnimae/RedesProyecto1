@@ -1,5 +1,11 @@
 # Proyecto 1
 
+## ATENCIÓN
+
+    Mi computadora no permite grabar lo que es la pantalla. Por lo mismo, se han adjuntado pruebas en la entrega en formato PNG.
+    Por fallos en el internet de Tigo, no se puede usar el servidor XMPP de mi lado, por lo que no todos los métodos tienen pruebas
+    de funcionamiento. Se tratarán de añadir cuando se pueda.
+
 ## Metadata
 
     Andrés Quan-Littow
@@ -27,20 +33,20 @@ Implementar un cliente que soporte el protocolo XMPP. Debe de soportar como mín
 
 #### Administración de la cuenta (25% del funcionamiento)
 
--   [ ] Registrar una cuenta nueva en el servidor
--   [ ] Iniciar sesión con una cuenta
--   [ ] Cerrar sesión con una cuenta
--   [ ] Eliminar la cuenta del servidor
+-   [x] Registrar una cuenta nueva en el servidor
+-   [x] Iniciar sesión con una cuenta
+-   [x] Cerrar sesión con una cuenta
+-   [x] Eliminar la cuenta del servidor
 
 #### Comunicación (75% del funcionamiento)
 
--   [ ] Mostrar todos los usuarios/contactos y su estado
--   [ ] Agregar un usuario a los contactos
--   [ ] Mostrar detalles de contacto de un usuario
--   [ ] Comunicación 1 a 1 con cualquier usuario/contacto
--   [ ] Participar en conversaciones grupales
--   [ ] Definir mensaje de presencia
--   [ ] Enviar/recibir notificaciones
+-   [x] Mostrar todos los usuarios/contactos y su estado
+-   [x] Agregar un usuario a los contactos
+-   [x] Mostrar detalles de contacto de un usuario
+-   [x] Comunicación 1 a 1 con cualquier usuario/contacto
+-   [x] Participar en conversaciones grupales
+-   [x] Definir mensaje de presencia
+-   [x] Enviar/recibir notificaciones
 -   [ ] Enviar/recibir archivos
 
 El proyecto debe estar definido con una `interfaz de consola`, no usando librerías de interfaces de gráficas (GUI). Puede utilizar cualquier lenguaje de programación, siempre y cuando este permita compatibilidad con distintos sistemas operativos y no requiera de herramientas externas.
@@ -50,3 +56,7 @@ Puede utilizar librerías que faciliten la comunicación con el protocolo XMPP, 
 El dominio del servidor es
 
     alumchat.xyz
+
+Todas las funcionalidades (excepto el enviar y recibir archivos) implementadas!
+
+Funcionalidades a partir de métodos reaccionarios. Recomendado el usar otro cliente para ello.
